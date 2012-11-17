@@ -6,14 +6,19 @@ dump of baby names given over the last 132 years in the United States.
 Useful for searching for names if you want one that's not too uncommon, but not 
 too popular either. 
 
-The data dump can be found here: http://www.ssa.gov/oact/babynames/limits.html
+You'll need to download the data yourself [1] and then run
+    python play.py <names.zip>
+to unpack the data and put it in a compressed binary for easier loading.
+
+[1] - http://www.ssa.gov/oact/babynames/limits.html
+
 
 ## Current Output
 
 For the lazy, this is some of the kinds of things you can do with the data:
 
     $ python play.py
-    Most 20 popular names over the last 132 years:
+    Most 10 popular names over the last 132 years:
                  count         year
     name                           
     Mary       4106851  1945.500000
@@ -26,7 +31,8 @@ For the lazy, this is some of the kinds of things you can do with the data:
     Susan      1119336  1945.500000
     Dorothy    1104599  1945.500000
     Sarah      1045750  1945.500000
-    'Least' 20 popular names over the last 132 years:
+    
+    'Least' 10 popular names over the last 132 years:
               count  year
     name                 
     Gregorio      5  1951

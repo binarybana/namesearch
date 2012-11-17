@@ -18,21 +18,23 @@ if len(sys.argv) == 2:
     fid['names'] = data
     fid.close()
     shutil.rmtree('rawdata')
-elif os.path.exists('names.h5'):
-    fid = pd.HDFStore('names.h5')
-    data = fid['names'] 
-    fid.close()
-else:
+elif not os.path.exists('names.h5'):
     print usagemsg
     sys.exit(-1)
+
+fid = pd.HDFStore('names.h5')
+data = fid['names'] 
+fid.close()
     
 data = data[data['gender'] == 'F']
 gb = data.groupby('name')
 agged = gb.agg({'count':np.sum ,'year': np.mean}).sort('count', ascending=False)
 
-print "Most 20 popular names over the last 132 years:"
+print "Most 10 popular names over the last 132 years:"
 print agged.ix[:10]
 
-print "'Least' 20 popular names over the last 132 years:"
+print ''
+
+print "'Least' 10 popular names over the last 132 years:"
 print agged.ix[-10:]
 
