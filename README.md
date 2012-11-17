@@ -6,11 +6,11 @@ dump of baby names given over the last 132 years in the United States.
 Useful for searching for names if you want one that's not too uncommon, but not 
 too popular either. 
 
-You'll need to download the data yourself [1] and then run
-    python play.py <names.zip>
+You'll need to download the 
+[data](http://www.ssa.gov/oact/babynames/limits.html) yourself and then run
+```python play.py <names.zip>```
 to unpack the data and put it in a compressed binary for easier loading.
 
-[1] - http://www.ssa.gov/oact/babynames/limits.html
 
 
 ## Current Output
