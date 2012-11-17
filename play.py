@@ -1,6 +1,7 @@
 import os,sys,glob,shutil
 import subprocess as sb
 import numpy as np
+import pylab as p
 import pandas as pd
 
 usagemsg = "Usage: %s <location of zipped names>"
@@ -38,3 +39,18 @@ print ''
 print "'Least' 10 popular names over the last 132 years:"
 print agged.ix[-10:]
 
+p.semilogy(agged['count'])
+p.grid(True)
+p.title('Sorted name histogram over the last 132 years')
+p.show()
+
+print "Proportion of female babies given any of the 50 most popular names:"
+print np.sum(agged['count'][:50])/np.sum(agged['count'])
+
+auri_count = agged.ix['Auri']['count']
+auri_index = agged.index.get_loc('Auri')
+
+def get(num=50, at=17000):
+    return agged.index[at:at+num]
+
+print ' '.join(agged[agged.index.map(len)==4].index[200:300])
